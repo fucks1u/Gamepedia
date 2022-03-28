@@ -2,8 +2,8 @@
 declare(strict_types=1);
 require('vendor/autoload.php');
 
+use game\models\Company;
 use game\models\Game;
-use \games\models\Company;
 use \games\models\Platform;
 use \games\models\Character;
 use Illuminate\Database\Capsule\Manager as DB;
@@ -14,8 +14,19 @@ $db->setAsGlobal();
 $db->bootEloquent();
 
 $liste = Game::where('name', 'like', '%Mario%') ->get();
-foreach ($liste as $chibre)
+foreach ($liste as $info)
 {
-    echo $chibre->name;
+    echo $info->name."<br>";
 }
-$liste = Company::where('location_country', 'Japan') -> get();
+
+$liste2 = Company::where('location_country','=', 'Japan') -> get();
+foreach ($liste2 as $info)
+{
+    echo $info->id . " " . $info->name."<br>";
+}
+
+$liste3 = Company::where('location_country','=', 'Japan') -> get();
+foreach ($liste2 as $info)
+{
+    echo $info->id . " " . $info->name."<br>";
+}

@@ -12,9 +12,11 @@ $db = new DB();
 $db->addConnection( parse_ini_file('conf.ini'));
 $db->setAsGlobal();
 $db->bootEloquent();
+
+//Scéance 1
 /*
-$liste = Game::where('name', 'like', '%Mario%') ->get();
-foreach ($liste as $info)
+$liste1 = Game::where('name', 'like', '%Mario%') ->get();
+foreach ($liste1 as $info)
 {
     echo $info->name."<br>";
 }
@@ -38,15 +40,37 @@ foreach ($liste4 as $info)
 {
     echo $info->name."<br>";
 }
-*/
 
 
+// marche pas belek
 $liste5 = Game::paginate(
     $perPage = 500, $columns = ['*'], $pageName = 'Game'
 );
 foreach ($liste5 as $info)
 {
-    echo $info->name."<br>";
+    echo $info."<br>";
 }
 
 
+//Scéance 2
+
+$sceance21 = Game::find(12342);
+echo "NOM DU JEU : " . $sceance21->name;
+$r = $sceance21->character()->get();
+echo "<br> <br> PERSOS : <br>";
+foreach($r as $value){
+    echo 'id : ' . $value->id . ' name : ' .$value->name . ' deck : ' . $value->deck ."<br>" ;
+}
+*/
+
+$sceance22 = Game::where('name','like','Mario%') ->get();
+
+foreach ($sceance22 as $info)
+{
+    echo 'Nom du jeu : ' .$info->name."<br>";
+    $r = $info->character()->get();
+    foreach ($r as $value){
+        echo ' Nom du personnage : ' .$value->name ."<br>" ;
+
+    }
+}

@@ -1,6 +1,6 @@
 <?php
 namespace game\models;
-class Patform extends \Illuminate\Database\Eloquent\Model
+class Platform extends \Illuminate\Database\Eloquent\Model
 {
     protected $table='platform';
     protected $primaryKey='id';

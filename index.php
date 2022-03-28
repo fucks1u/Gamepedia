@@ -2,10 +2,11 @@
 declare(strict_types=1);
 require('vendor/autoload.php');
 
-use \games\model\Game;
-use \games\model\Company;
-use \games\model\Platform;
-use \games\model\Character;
+use game\models\Game;
+use \games\models\Company;
+use \games\models\Platform;
+use \games\models\Character;
+use Illuminate\Database\Capsule\Manager as DB;
 
 $db = new DB();
 $db->addConnection( parse_ini_file('conf.ini'));

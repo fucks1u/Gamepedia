@@ -154,6 +154,7 @@ foreach ($games as $game) {
     echo 'Nom du jeux: ' . $game->name . "<br>";
 
 
+
 }
 
 //}

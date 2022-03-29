@@ -132,7 +132,7 @@ foreach ($games as $game) {
 
 }
 
-*/
+
 
 $games = Game::select('*')->where('name','like','Mario%')->wherehas('raiting',function($query){
     $query->where('name','like','%3+%');
@@ -156,6 +156,13 @@ foreach ($games as $game) {
 
 
 }
+*/
+$début = microtime(true);
+$liste1 = Game::select('*')->get();
+
+
+$fin = microtime(true);
+echo $fin-$début;
 
 //}
 

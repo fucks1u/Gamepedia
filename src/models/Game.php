@@ -6,28 +6,28 @@ class Game extends \Illuminate\Database\Eloquent\Model
     protected $primaryKey='id';
 
     public function platform() {
-        return $this->hasMany('game\models\Platform',
-            'id');
+        return $this->belongsToMany('game\models\Platform',
+            'game2platform');
     }
 
     public function theme() {
-        return $this->hasMany('game\models\Theme',
-            'id');
+        return $this->belongsToMany('game\models\Theme',
+            'game2theme');
     }
 
     public function gamerating() {
-        return $this->hasMany('game\models\Game_rating',
-            'id');
+        return $this->belongsToMany('game\models\Game_rating',
+            'game2rating');
     }
 
     public function character() {
-        return $this->hasMany('game\models\Character',
-            'id');
+        return $this->belongsToMany('game\models\Character',
+            'game2character');
     }
 
     public function genre() {
-        return $this->hasMany('game\models\Genre',
-            'id');
+        return $this->belongsToMany('game\models\Genre',
+            'game2genre');
     }
 
 }

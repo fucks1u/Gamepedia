@@ -7,6 +7,6 @@ class Game_rating
 
     public function rating_board() {
         return $this->belongsTo('game\models\Rating_board',
-            'id');
+            'rating_board_id');
     }
 }

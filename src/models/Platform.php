@@ -7,11 +7,11 @@ class Platform extends \Illuminate\Database\Eloquent\Model
 
     public function company() {
         return $this->belongsTo('game\models\company',
-            'id');
+            'c_id');
     }
 
     public function game() {
-        return $this->hasMany('game\models\game',
-            'id');
+        return $this->belongsToMany('game\models\game',
+            'game2platform');
     }
 }

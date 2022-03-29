@@ -6,13 +6,13 @@ class Company extends \Illuminate\Database\Eloquent\Model
     protected $primaryKey='id';
 
     public function platform() {
-        return $this->hasMany('game\models\platform',
-            'id');
+        return $this->belongsToMany('game\models\platform',
+            'game_developers');
     }
 
     public function game() {
-        return $this->hasMany('game\models\game',
-            'id');
+        return $this->belongsToMany('game\models\game',
+            'game_publishers');
     }
 
 }

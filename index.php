@@ -69,6 +69,7 @@ foreach ($sceance22 as $info)
 {
     echo 'Nom du jeu : ' .$info->name."<br>";
     $r = $info->character()->get();
+
     foreach ($r as $value){
         echo ' Nom du personnage : ' .$value->name ."<br>" ;
 

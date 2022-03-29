@@ -6,8 +6,8 @@ class Genre extends \Illuminate\Database\Eloquent\Model
     protected $primaryKey='id';
 
     public function game() {
-        return $this->hasMany('models\game',
-            'id');
+        return $this->belongsToMany('models\game',
+            'game2genre');
     }
 
 }

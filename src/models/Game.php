@@ -31,12 +31,12 @@ class Game extends \Illuminate\Database\Eloquent\Model
     }
 
     public function game_developpers() {
-        return $this->belongsToMany('game\models\company',
+        return $this->belongsToMany('game\models\Company',
             'game_developers','game_id','comp_id');
     }
 
     public function game_publishers() {
-        return $this->belongsToMany('game\models\company',
+        return $this->belongsToMany('game\models\Company',
             'game_publishers','game_id','comp_id');
     }
 

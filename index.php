@@ -80,9 +80,9 @@ foreach ($sceance22 as $info) {
 
 $sceance23 = Company::select('*')->where('name','like','%Sony%')->get();
 foreach ($sceance23 as $info) {
-    echo 'Nom de la compagnie : ' . $info->name . "<br>";
+    echo 'Nom de la compagnie : ' . $info->name . $info->id. "<br>";
 
-    $r = $info->Compagny.game_developpers() ->get();
+    $r = $info->game_developpers() ->get();
 
         foreach ($r as $value){
             $name =$value->name;

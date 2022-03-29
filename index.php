@@ -120,11 +120,23 @@ foreach ($sceance25 as $info){
         }
     }
 }
-*/
+
 
 $games = Game::select('*')->where('name','like','Mario%')->wherehas('raiting',function($query){
     $query->where('name','like','%3+%');
 })->get();
+
+foreach ($games as $game) {
+    echo 'Nom du jeux: ' . $game->name . "<br>";
+
+
+}
+
+*/
+
+$games = Game::select('*')->where('name','like','Mario%')->wherehas('raiting',function($query){
+    $query->where('name','like','%3+%');
+})->wherehas('game_publishers',function($query){$query->where('name','like','%Inc.%');})->get();
 
 foreach ($games as $game) {
     echo 'Nom du jeux: ' . $game->name . "<br>";

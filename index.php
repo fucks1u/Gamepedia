@@ -61,14 +61,14 @@ echo "<br> <br> PERSOS : <br>";
 foreach($r as $value){
     echo 'id : ' . $value->id . ' name : ' .$value->name . ' deck : ' . $value->deck ."<br>" ;
 }
+
 */
+$sceance22 = Game::select('*')->where('name','like','Mario%') ->get();
 
-$sceance22 = Game::where('name','like','Mario%') ->get();
+foreach ($sceance22 as $info) {
+    echo 'Nom du jeu : ' . $info->name . "<br>";
 
-foreach ($sceance22 as $info)
-{
-    echo 'Nom du jeu : ' .$info->name."<br>";
-    $r = $info->character()->get();
+    $r = $info->character;//->get();
 
     foreach ($r as $value){
         echo ' Nom du personnage : ' .$value->name ."<br>" ;

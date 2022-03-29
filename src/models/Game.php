@@ -7,27 +7,27 @@ class Game extends \Illuminate\Database\Eloquent\Model
 
     public function platform() {
         return $this->belongsToMany('game\models\Platform',
-            'game2platform');
+            'game2platform','game_id','platorm_id');
     }
 
     public function theme() {
         return $this->belongsToMany('game\models\Theme',
-            'game2theme');
+            'game2theme','game_id','theme_id');
     }
 
     public function gamerating() {
         return $this->belongsToMany('game\models\Game_rating',
-            'game2rating');
+            'game2rating','game_id','rating_id');
     }
 
     public function character() {
         return $this->belongsToMany('game\models\Character',
-            'game2character');
+            'game2character','game_id','character_id');
     }
 
     public function genre() {
         return $this->belongsToMany('game\models\Genre',
-            'game2genre');
+            'game2genre','game_id','genre_id');
     }
 
 }

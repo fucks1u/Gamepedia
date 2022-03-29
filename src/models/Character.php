@@ -8,7 +8,7 @@ class Character extends \Illuminate\Database\Eloquent\Model
 
     public function game() {
         return $this->belongsToMany('game\models\game',
-            'game2character');
+            'game2character','character_id', 'game_id');
     }
 
 }

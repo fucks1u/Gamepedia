@@ -7,7 +7,7 @@ class Genre extends \Illuminate\Database\Eloquent\Model
 
     public function game() {
         return $this->belongsToMany('models\game',
-            'game2genre');
+            'game2genre','genre_id','game_id');
     }
 
 }

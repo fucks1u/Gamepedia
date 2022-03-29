@@ -7,6 +7,6 @@ class Theme
 
     public function game() {
         return $this->belongsToMany('game\models\Game',
-            'game2theme');
+            'game2theme','theme_id','game_id');
     }
 }

@@ -12,6 +12,6 @@ class Platform extends \Illuminate\Database\Eloquent\Model
 
     public function game() {
         return $this->belongsToMany('game\models\game',
-            'game2platform');
+            'game2platform','platform_id','game_id');
     }
 }

@@ -5,6 +5,7 @@ require('vendor/autoload.php');
 use game\models\Company;
 use game\models\Game;
 use game\models\Game_rating;
+use game\models\Rating_board;
 use game\models\Platform;
 use game\models\Character;
 use Illuminate\Database\Capsule\Manager as DB;
@@ -93,21 +94,20 @@ foreach ($sceance23 as $info) {
 
 }
 */
+/*
+$games = Game::select('*')->where('name','like','%Mario%')->get();
+foreach ($games as $game) {
+    echo 'Nom du jeux: ' . $game->name . "<br>";
 
-$sceance24 = Game::select('*')->where('name','like','%Mario%')->get();
-foreach ($sceance24 as $info) {
-    echo 'Nom du jeux: ' . $info->name . "<br>";
-
-    $r = $info->game_rating->get();
+    $r = $game->raiting;
 
     foreach ($r as $value) {
-        $name = $value->name;
-        $classement = $value->rating_id;
-        echo ' Nom des jeux : ' . $name . $classement . "<br>";
+        $ratingboard = $value->ratingboard;
+        //echo ' Nom des jeux : ' . $ratingboard . "<br>";
 
     }
 }
-/*
+
 $sceance25 = Game::select('*')->where('name','like','Mario%')->get();
 foreach ($sceance25 as $info){
 
@@ -121,6 +121,20 @@ foreach ($sceance25 as $info){
     }
 }
 */
+
+$games = Game::select('*')->where('name','like','%Mario')->get();
+foreach ($games as $game) {
+    echo 'Nom du jeux: ' . $game->name . "<br>";
+
+    $r = $game->raiting;
+
+    foreach ($r as $value) {
+        $ratingboard = $value->ratingboard;
+        echo ' Nom des jeux : ' . $ratingboard . "<br>";
+
+    }
+}
+
 //}
 
 

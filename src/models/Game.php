@@ -15,9 +15,13 @@ class Game extends \Illuminate\Database\Eloquent\Model
             'game2theme','game_id','theme_id');
     }
 
-    public function game_rating() {
+    public function raiting() {
         return $this->belongsToMany('game\models\Game_rating',
             'game2rating','game_id','rating_id');
+    }
+    public function ratingboard() {
+        return $this->belongsTo('game\models\Rating_board',
+            'rating_board_id');
     }
 
     public function character() {

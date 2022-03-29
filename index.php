@@ -4,6 +4,7 @@ require('vendor/autoload.php');
 
 use game\models\Company;
 use game\models\Game;
+use game\models\Game_rating;
 use game\models\Platform;
 use game\models\Character;
 use Illuminate\Database\Capsule\Manager as DB;
@@ -76,7 +77,7 @@ foreach ($sceance22 as $info) {
     }
 }
 
-*/
+
 
 $sceance23 = Company::select('*')->where('name','like','%Sony%')->get();
 foreach ($sceance23 as $info) {
@@ -91,29 +92,32 @@ foreach ($sceance23 as $info) {
         }
 
 }
+*/
 
-/*
 $sceance24 = Game::select('*')->where('name','like','%Mario%')->get();
 foreach ($sceance24 as $info) {
     echo 'Nom du jeux: ' . $info->name . "<br>";
 
-    $r = $info->rating_board() ->get();
-    var_dump($r);
+    $r = $info->game_rating->get();
 
-    foreach ($r as $value){
-        $name =$value->name;
+    foreach ($r as $value) {
+        $name = $value->name;
         $classement = $value->rating_id;
-        echo ' Nom des jeux : ' . $name .$classement."<br>" ;
+        echo ' Nom des jeux : ' . $name . $classement . "<br>";
 
     }
-
-
+}
+/*
 $sceance25 = Game::select('*')->where('name','like','Mario%')->get();
 foreach ($sceance25 as $info){
-    $r = $info->character->where('character_id','<=',3)->count();
 
-    foreach ($r as $value){
-        echo ' Nom des jeux : ' . $value->name."<br>";
+    $r = $info->character;
+    $nb = $r->count();
+    if($nb >= 3) {
+        echo'nom du jeu : '.$info->name."<br>";
+        foreach ($r as $value) {
+            echo ' Nom des personnages : ' . $value->name . "<br>";
+        }
     }
 }
 */

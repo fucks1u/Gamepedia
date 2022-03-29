@@ -15,7 +15,7 @@ class Game extends \Illuminate\Database\Eloquent\Model
             'game2theme','game_id','theme_id');
     }
 
-    public function gamerating() {
+    public function game_rating() {
         return $this->belongsToMany('game\models\Game_rating',
             'game2rating','game_id','rating_id');
     }
@@ -28,6 +28,16 @@ class Game extends \Illuminate\Database\Eloquent\Model
     public function genre() {
         return $this->belongsToMany('game\models\Genre',
             'game2genre','game_id','genre_id');
+    }
+
+    public function game_developpers() {
+        return $this->belongsToMany('game\models\company',
+            'game_developers','game_id','comp_id');
+    }
+
+    public function game_publishers() {
+        return $this->belongsToMany('game\models\company',
+            'game_publishers','game_id','comp_id');
     }
 
 }

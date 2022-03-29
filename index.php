@@ -62,16 +62,49 @@ foreach($r as $value){
     echo 'id : ' . $value->id . ' name : ' .$value->name . ' deck : ' . $value->deck ."<br>" ;
 }
 
-*/
+
 $sceance22 = Game::select('*')->where('name','like','Mario%') ->get();
 
 foreach ($sceance22 as $info) {
     echo 'Nom du jeu : ' . $info->name . "<br>";
 
-    $r = $info->character;//->get();
+    $r = $info->character;
 
     foreach ($r as $value){
         echo ' Nom du personnage : ' .$value->name ."<br>" ;
 
     }
 }
+
+
+*/
+$sceance23 = Company::select('*')->where('name','like','%Sony%')->get();
+foreach ($sceance23 as $info) {
+    echo 'Nom de la compagnie : ' . $info->name . "<br>";
+
+    $r = $info->Compagny.game_developpers;
+
+        foreach ($r as $value){
+            $name =$value->name;
+            echo ' Nom des jeux : ' . $name ."<br>" ;
+
+        }
+
+}
+/*
+
+$sceance24 = Game::select('*')->where('name','like','%Mario%')->get();
+foreach ($sceance24 as $info) {
+    echo 'Nom du jeux: ' . $info->name . "<br>";
+
+    $r = $info->rating_board;
+    var_dump($r);
+
+    foreach ($r as $value){
+        $name =$value->name;
+        $classement = $value->rating_id;
+        echo ' Nom des jeux : ' . $name .$classement."<br>" ;
+
+    }
+*/
+//}

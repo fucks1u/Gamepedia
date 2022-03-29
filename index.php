@@ -103,7 +103,7 @@ foreach ($games as $game) {
 
     foreach ($r as $value) {
         $ratingboard = $value->ratingboard;
-        //echo ' Nom des jeux : ' . $ratingboard . "<br>";
+        echo ' raiting : ' . $ratingboard . "<br>";
 
     }
 }
@@ -122,17 +122,14 @@ foreach ($sceance25 as $info){
 }
 */
 
-$games = Game::select('*')->where('name','like','%Mario')->get();
+$games = Game::select('*')->where('name','like','Mario%')->wherehas('raiting',function($query){
+    $query->where('name','like','%3+%');
+})->get();
+
 foreach ($games as $game) {
     echo 'Nom du jeux: ' . $game->name . "<br>";
 
-    $r = $game->raiting;
 
-    foreach ($r as $value) {
-        $ratingboard = $value->ratingboard;
-        echo ' Nom des jeux : ' . $ratingboard . "<br>";
-
-    }
 }
 
 //}

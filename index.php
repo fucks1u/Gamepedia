@@ -144,6 +144,18 @@ foreach ($games as $game) {
 
 }
 
+
+$games = Game::select('*')->where('name','like','Mario%')->wherehas('raiting',function($query){
+    $query->where('name','like','%3+%');
+})->wherehas('game_publishers',function($query){$query->where('name','like','%Inc.%');})
+    ->wherehas('raiting',function($query){$query->where('name','like','%CERO%');})->get();
+
+foreach ($games as $game) {
+    echo 'Nom du jeux: ' . $game->name . "<br>";
+
+
+}
+
 //}
 
 

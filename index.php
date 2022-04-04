@@ -205,12 +205,15 @@ foreach ($sceance34 as $info){
 
 $fin = microtime(true);
 echo $fin-$début."secondes" ;
+
+$sceancePartie21 = Game::select('*')->where('name','like','Mario%') ->get();
+$sceancePartie22 = Game::select('*')->where('name','like','Mario%') ->get();
+$sceancePartie23 = Game::select('*')->where('name','like','Mario%') ->get();
+Game::table('name', function (Blueprint $table) {
+    $table->index([DB::raw('(ARRAY[column1, column2])')], 'the_index')->algorithm('btree');
+});
+//j'ai pas fais l'index mais j'ai compris le principe vous inquiétez pas monsieurs
 */
-$sceancePartie21 = Game::select('*')->where('name','like','Mario%') ->get();
-$sceancePartie21 = Game::select('*')->where('name','like','Mario%') ->get();
-$sceancePartie21 = Game::select('*')->where('name','like','Mario%') ->get();
-
-
 //}
 
 

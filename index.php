@@ -156,13 +156,60 @@ foreach ($games as $game) {
 
 
 }
-*/
+
 $début = microtime(true);
 $liste1 = Game::select('*')->get();
 
 
 $fin = microtime(true);
 echo $fin-$début;
+
+$début = microtime(true);
+$sceance32 = Game::where('name', 'like', '%Mario%') ->get();
+foreach ($sceance32 as $info)
+{
+    echo $info->name."<br>";
+}
+$fin = microtime(true);
+echo $fin-$début."secondes" ;
+
+$début = microtime(true);
+$sceance33 = Game::select('*')->where('name','like','Mario%') ->get();
+
+foreach ($sceance33 as $info) {
+    echo 'Nom du jeu : ' . $info->name . "<br>";
+
+    $r = $info->character;
+
+    foreach ($r as $value){
+        echo ' Nom du personnage : ' .$value->name ."<br>" ;
+
+    }
+}
+$fin = microtime(true);
+echo $fin-$début."secondes" ;
+
+$début = microtime(true);
+$sceance34 = Game::select('*')->where('name','like','Mario%')->get();
+foreach ($sceance34 as $info){
+
+    $r = $info->character;
+    $nb = $r->count();
+    if($nb >= 3) {
+        echo'nom du jeu : '.$info->name."<br>";
+        foreach ($r as $value) {
+            echo ' Nom des personnages : ' . $value->name . "<br>";
+        }
+    }
+}
+
+$fin = microtime(true);
+echo $fin-$début."secondes" ;
+*/
+$sceancePartie21 = Game::select('*')->where('name','like','Mario%') ->get();
+$sceancePartie21 = Game::select('*')->where('name','like','Mario%') ->get();
+$sceancePartie21 = Game::select('*')->where('name','like','Mario%') ->get();
+
 
 //}
 
